@@ -22,11 +22,23 @@ const defaultState = {
 
 const reducer = (state = defaultState, action) => {
     console.log(action);
-    const { type, todo } = action;
+    const { type, todo, showDone } = action;
     if( type === "SUBMIT_TODO") {
         state = {
             ...state,
             todos: [...state.todos, todo]
+        }
+    }
+    if(type === "UPDATE_TODO") {
+        state = {
+            ...state,
+            todos:state.todos.map(_todo => _todo.id === todo.id ? todo : _todo)
+        }
+    }
+    if(type === "SET_SHOW_DONE") {
+        state = {
+            ...state,
+            showDone
         }
     }
     return state;
