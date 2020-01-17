@@ -21,6 +21,14 @@ const defaultState = {
 }
 
 const reducer = (state = defaultState, action) => {
+    console.log(action);
+    const { type, todo } = action;
+    if( type === "SUBMIT_TODO") {
+        state = {
+            ...state,
+            todos: [...state.todos, todo]
+        }
+    }
     return state;
 }
 
