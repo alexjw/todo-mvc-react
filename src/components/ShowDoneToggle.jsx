@@ -3,10 +3,14 @@ import { connect } from 'react-redux';
 
 const ShowDoneToggle = ( { showDone,handleChangeShowDone } ) => {
     return <div className="show-completed">
-        <label>
-            Show completed items?
-            <input type="checkbox" checked={showDone} onChange={handleChangeShowDone}/>
-        </label>
+        <ul>
+            <li>
+                <label class="show-completed">
+                    Show completed items?
+                </label>
+                <input type="checkbox" checked={showDone} onChange={handleChangeShowDone}/>
+            </li>
+        </ul>
     </div>
 };
 

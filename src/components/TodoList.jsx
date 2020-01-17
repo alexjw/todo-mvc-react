@@ -5,7 +5,7 @@ import classnames from 'classnames'
 const ToDoList = ( { todos, showDone, toggleTodoDone } ) => {
     return <ul>
         {todos.filter(todo => !todo.done || showDone).map(todo => {
-            return <li key={todo.id}>{todo.text}
+            return <li key={todo.id} className={ classnames( {"complete":todo.done} )}>{todo.text}
             <input type="checkbox" onChange={ () => toggleTodoDone(todo) } checked={todo.done}/></li>
         })}
         </ul>
